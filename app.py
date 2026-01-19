@@ -21,7 +21,7 @@ def home():
 
 # This part runs the app locally when you use 'python main.py', 
 # but Gunicorn ignores it when deployed:
-if __name__ == '__main__':
+if __name__ == '__app__':
     app.run(debug=True)
 
 
