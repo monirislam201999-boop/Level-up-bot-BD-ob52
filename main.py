@@ -10,6 +10,21 @@ from Pb2 import DEcwHisPErMsG_pb2 , MajoRLoGinrEs_pb2 , PorTs_pb2 , MajoRLoGinrE
 from cfonts import render, say
 from Crypto.Cipher import AES
 from Crypto.Util.Padding import pad
+from flask import Flask
+
+# VITAL: This line creates the 'app' callable Gunicorn looks for
+app = Flask(__name__)
+
+@app.route('/')
+def home():
+    return 'Server is running!'
+
+# This part runs the app locally when you use 'python main.py', 
+# but Gunicorn ignores it when deployed:
+if __name__ == '__main__':
+    app.run(debug=True)
+
+
 
 # Import from important_zitado for create_protobuf_packet if available
 try:
